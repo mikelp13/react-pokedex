@@ -4,13 +4,20 @@ import {
   getPokemonsInfoOperation,
   getPokemonsOperation,
 } from '../../redux/operations/pokedexOperations'
-import { getPokemons } from '../../redux/selectors/pokedexSelectors'
+import {
+  getCurrentPokemon,
+  getPokemons,
+} from '../../redux/selectors/pokedexSelectors'
 import LoadMoreBtn from '../loadMoreBtn/LoadMoreBtn'
 import PokemonList from '../pokemonList/PokemonList'
+import RigthSideBar from '../rightSideBar/RigthSideBar'
+import Wrapper from './PokedexStyled'
 
 const Pokedex = () => {
   const dispatch = useDispatch()
   const pokemons = useSelector(getPokemons)
+  const currentPokemon = useSelector(getCurrentPokemon)
+  console.log(`currentPokemon`, currentPokemon)
 
   useEffect(() => {
     dispatch(getPokemonsOperation())
@@ -22,12 +29,17 @@ const Pokedex = () => {
   }, [])
 
   return (
-    <div>
-      <div className="container">
-        <PokemonList />
-        {pokemons.length > 0 && <LoadMoreBtn />}
+    <Wrapper>
+      <div className="container pageContainer">
+        <div className="pokemonsContainer">
+          <PokemonList />
+          {pokemons.length > 0 && <LoadMoreBtn />}
+        </div>
+        <div className="sideBarContainer">
+          {currentPokemon && <RigthSideBar {...currentPokemon} />}
+        </div>
       </div>
-    </div>
+    </Wrapper>
   )
 }
 

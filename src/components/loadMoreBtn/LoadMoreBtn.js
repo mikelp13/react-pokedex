@@ -13,6 +13,11 @@ const LoadMoreBtn = () => {
       dispatch(getPokemonsInfoOperation())
     }, 100);
     setPage(page + 1)
+    
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth",
+    });
   }
   return (
     <ButtonStyled type="button" onClick={handleClick}>

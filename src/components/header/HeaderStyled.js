@@ -8,11 +8,12 @@ const HeaderStyled = styled.header`
   z-index: 1000;
   .header {
     text-align: center;
+    padding: 15px 0;
   }
   .headerLogo {
     font-size: 25px;
     font-weight: 700;
-    line-height: 2.0;
+
   }
 `;
 

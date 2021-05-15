@@ -8,4 +8,8 @@ export const getPokemonsInfoRequest = createAction("pokemon/getInfoRequest");
 export const getPokemonsInfoSuccess = createAction("pokemon/getInfoSuccess");
 export const getPokemonsInfoError = createAction("pokemon/getInfoError");
 
+export const getCurrentPokemon = createAction("pokemon/getCurrentPokemonSuccess");
+
+
+
 export const setFilter = createAction("pokemon/setFilter");

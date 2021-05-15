@@ -2,9 +2,9 @@ import React from 'react'
 import { v4 } from 'uuid'
 import pokemonType from '../../../utils/typeColors'
 
-const PokemonListItem = ({ name, types, sprites }) => {
+const PokemonListItem = ({id, name, types, sprites, onClick }) => {
   return (
-    <li className="listItem">
+    <li className="listItem" onClick={onClick} data-id={id}>
       <img
         src={sprites.other.dream_world.front_default}
         width="200"
