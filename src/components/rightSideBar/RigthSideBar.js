@@ -5,9 +5,9 @@ import { v4 } from 'uuid'
 const RigthSideBar = ({ name, types, sprites, weight, moves, stats }) => {
   const statsObj = {}
   stats.forEach(item => {
-    return (statsObj[item.stat.name.split('-').join('')] = item.base_stat)
+    return statsObj[item.stat.name.split('-').join('')] = item.base_stat
   })
-  console.log(`statsObj`, statsObj)
+
   return (
     <BarStyled>
       <img

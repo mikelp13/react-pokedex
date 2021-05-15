@@ -17,5 +17,15 @@ const Wrapper = styled.div`
       }
     }
   }
+  .loader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
 `
 export default Wrapper

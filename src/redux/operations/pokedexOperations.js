@@ -11,6 +11,7 @@ import {
 // axios.defaults.baseURL = 'https://pokeapi.co/api/v2'
 const baseURL = 'https://pokeapi.co/api/v2'
 
+
 const getPokemonsOperation =
   (page = 1, perPage = 12) =>
   async dispatch => {
