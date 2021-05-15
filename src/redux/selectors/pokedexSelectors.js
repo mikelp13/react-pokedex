@@ -1,3 +1,3 @@
-const getPokemonData = state => state.pokemons.data
+const getPokemons= state => state.pokemons.pokemonsInfo
 
-export {getPokemonData}
+export {getPokemons}

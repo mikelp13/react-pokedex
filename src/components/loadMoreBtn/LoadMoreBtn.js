@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import {getPokemonsInfoOperation, getPokemonsOperation} from '../../redux/operations/pokedexOperations'
+import ButtonStyled from './LoadMoreBtnStyled'
 
 const LoadMoreBtn = () => {
   const dispatch = useDispatch()
@@ -10,13 +11,13 @@ const LoadMoreBtn = () => {
     dispatch(getPokemonsOperation(page))
     setTimeout(() => {
       dispatch(getPokemonsInfoOperation())
-    }, 1000);
+    }, 100);
     setPage(page + 1)
   }
   return (
-    <button type="button" onClick={handleClick}>
+    <ButtonStyled type="button" onClick={handleClick}>
       Load more
-    </button>
+    </ButtonStyled>
   )
 }
 
