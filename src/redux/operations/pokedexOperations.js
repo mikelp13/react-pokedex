@@ -30,14 +30,14 @@ const getPokemonsOperation =
 const getPokemonsInfoOperation = () => async (dispatch, getState) => {
   dispatch(getPokemonsInfoRequest())
   const { pokemons:{ data } } = getState()
-  console.log(`data`, data)
+
   try {
     const response = await Promise.all(data.map(async pokemon => {
       const pokemonRecord = await axios.get(pokemon.url)
       return pokemonRecord
     }))
     const pokemonsInfo = response.map(pokemon=>pokemon.data)
-    console.log(`pokemonsInfo`, pokemonsInfo)
+
     dispatch(getPokemonsInfoSuccess(pokemonsInfo))
   } catch (error) {
     dispatch(getPokemonsInfoError(error.message))

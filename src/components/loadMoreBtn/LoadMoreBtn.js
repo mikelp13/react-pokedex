@@ -1,9 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useDispatch } from 'react-redux'
-import {
-  getPokemonsInfoOperation,
-  getPokemonsOperation,
-} from '../../redux/operations/pokedexOperations'
+import { getPokemonsOperation } from '../../redux/operations/pokedexOperations'
 import ButtonStyled from './LoadMoreBtnStyled'
 
 const LoadMoreBtn = ({page, setPage}) => {
@@ -11,11 +8,6 @@ const LoadMoreBtn = ({page, setPage}) => {
 
   const handleClick = () => {
     dispatch(getPokemonsOperation(page))
-
-    setTimeout(() => {
-      dispatch(getPokemonsInfoOperation())
-    }, 100)
-
     setPage(page + 1)
 
     window.scrollTo({

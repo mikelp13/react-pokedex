@@ -27,11 +27,14 @@ const Pokedex = () => {
 
   useEffect(() => {
     dispatch(getPokemonsOperation())
-    setTimeout(() => {
-      dispatch(getPokemonsInfoOperation())
-    }, 100)
+
     // eslint-disable-next-line
   }, [])
+
+  useEffect(() => {
+   dispatch(getPokemonsInfoOperation())
+    // eslint-disable-next-line
+  }, [data])
 
   return (
     <Wrapper>
