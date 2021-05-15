@@ -21,7 +21,7 @@ const ListStyled = styled.ul`
       }
     }
 
-    @media screen and (min-width: 768px) and (max-width: 1199px) {
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
       width: calc((100% - 30px) / 2);
 
       &:not(:nth-child(2n)) {
@@ -33,7 +33,7 @@ const ListStyled = styled.ul`
       }
     }
 
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1280px) {
       margin-right: 30px;
       margin-bottom: 30px;
       /* width: 370px; */
