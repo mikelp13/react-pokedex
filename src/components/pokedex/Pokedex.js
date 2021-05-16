@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-
+import { CSSTransition } from 'react-transition-group'
 import {
   getPokemonsInfoOperation,
   getPokemonsOperation,
@@ -8,6 +8,7 @@ import {
 import {
   getCurrentPokemon,
   getLoading,
+  getNotification,
   getPokemons,
   getPokemonsData,
 } from '../../redux/selectors/pokedexSelectors'
@@ -16,23 +17,25 @@ import LoadMoreBtn from '../loadMoreBtn/LoadMoreBtn'
 import PokemonList from '../pokemonList/PokemonList'
 import RigthSideBar from '../rightSideBar/RigthSideBar'
 import Wrapper from './PokedexStyled'
+import Notification from '../notification/Notification'
 
 const Pokedex = () => {
   const dispatch = useDispatch()
   const pokemons = useSelector(getPokemons)
   const data = useSelector(getPokemonsData)
-  const loading = useSelector(getLoading)
   const currentPokemon = useSelector(getCurrentPokemon)
+  const loading = useSelector(getLoading)
+  const showNotif = useSelector(getNotification)
+
   const [page, setPage] = useState(2)
 
   useEffect(() => {
     dispatch(getPokemonsOperation())
-
     // eslint-disable-next-line
   }, [])
 
   useEffect(() => {
-   dispatch(getPokemonsInfoOperation())
+    dispatch(getPokemonsInfoOperation())
     // eslint-disable-next-line
   }, [data])
 
@@ -43,6 +46,14 @@ const Pokedex = () => {
           <Loader />
         </div>
       )}
+      <CSSTransition
+        in={showNotif}
+        timeout={250}
+        classNames="my-notif"
+        unmountOnExit
+      >
+        <Notification />
+      </CSSTransition>
       <div className="container pageContainer">
         <div className="pokemonsContainer">
           <PokemonList />

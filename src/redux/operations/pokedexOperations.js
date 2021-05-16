@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { showNotifMessage } from '../actions/notifActions'
 import {
   getPokemonsError,
   getPokemonsInfoError,
@@ -23,6 +24,7 @@ const getPokemonsOperation =
       )
       dispatch(getPokemonsSuccess(response.data))
     } catch (error) {
+      dispatch(showNotifMessage())
       dispatch(getPokemonsError(error.message))
     }
   }
@@ -40,6 +42,7 @@ const getPokemonsInfoOperation = () => async (dispatch, getState) => {
 
     dispatch(getPokemonsInfoSuccess(pokemonsInfo))
   } catch (error) {
+    dispatch(showNotifMessage())
     dispatch(getPokemonsInfoError(error.message))
   }
 
