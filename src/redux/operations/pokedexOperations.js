@@ -29,6 +29,7 @@ const getPokemonsOperation =
     }
   }
 
+  
 const getPokemonsInfoOperation = () => async (dispatch, getState) => {
   dispatch(getPokemonsInfoRequest())
   const { pokemons:{ data } } = getState()
@@ -45,7 +46,6 @@ const getPokemonsInfoOperation = () => async (dispatch, getState) => {
     dispatch(showNotifMessage())
     dispatch(getPokemonsInfoError(error.message))
   }
-
 
 }
 export { getPokemonsOperation, getPokemonsInfoOperation }
